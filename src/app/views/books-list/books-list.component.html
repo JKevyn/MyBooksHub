@@ -1,0 +1,24 @@
+<section class="container flex justify-center flex-col items-center min-h-screen">
+  <header class="text-[#6C63FF] font-poppins font-semibold text-[24px] leading-[36px] mt-[76px] mb-[5px] drop-shadow-md">
+    Que livro você procura?
+  </header>
+
+  <div class="busca flex items-center">
+    <input type="search" class="w-[588px] h-[56px] border-2 border-[#6C63FF] rounded-[10px] outline-none box-border bg-no-repeat bg-[center_left_4.08%] bg-[url('assets/imagens/icone-busca.png')] font-poppins font-normal text-[16px] leading-[24px] pl-[40px] focus:bg-none focus:pl-[10px] focus:outline-none focus:text-decoration-none" />
+  </div>
+
+  <p class="font-poppins font-normal text-[16px] leading-[24px] text-[#8B8B8B] mt-2">Busque por assunto, autoria, nome...</p>
+
+  <div class="container-card mb-[2rem] flex flex-wrap justify-center ml-[80px] mr-[80px]" *ngIf="booksList?.length > 0; else telaInicial">
+    <div *ngFor="let book of booksList">
+      <app-book [book]="book"></app-book>
+    </div>
+  </div>
+
+  <ng-template #telaInicial>
+    <div class="imagens flex items-center justify-center">
+      <h1 class="titulo mt-[72px] ml-[64px] font-poppins font-semibold text-[24px] leading-[36px]">Busque o livro <br> que quiser na <br> nossa estante!</h1>
+      <img class="ilustracao mt-[72px] ml-[130px] mr-[64px]" src="../../assets/imagens/ilustracao-estante.png" alt="Ilustração de uma pessoa em pé ao lado de uma estante com livros e plantas" />
+    </div>
+  </ng-template>
+</section>

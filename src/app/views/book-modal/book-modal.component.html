@@ -1,0 +1,28 @@
+<section *ngIf="modalStatus" class="container {{ hideScroll() }} fixed top-0 left-0 w-full h-screen flex justify-center items-center z-10">
+  <div class="card bg-white rounded-lg shadow-lg fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-[30rem] max-h-[90%] grid grid-cols-[1fr_3fr_20px] grid-rows-[min-content] grid-areas-[imagem info-card botao-fechar sinopse] gap-y-4 p-6 z-20">
+
+    <img class="imagem h-[18rem] col-start-1 row-start-1 pt-4 object-cover" src="{{ book != undefined ? book : 'assets/imagens/capa-indisponivel.png' }}" alt="Capa do book" />
+
+    <div class="info-card bg-white w-[12rem] pl-6 col-start-2 row-start-1 flex flex-col justify-evenly">
+      <p class="titulo font-poppins font-semibold text-xl leading-8 text-[#6C63FF] pt-4">{{ book }}</p>
+      <p class="informacoes font-poppins font-semibold text-lg leading-6 text-[#8B8B8B] pb-1">Autoria:</p>
+      <p class="resultado font-poppins font-normal text-lg leading-6 text-[#444444] pb-2">{{ book }}</p>
+      <p class="informacoes font-poppins font-semibold text-lg leading-6 text-[#8B8B8B] pb-1">Data de publicação:</p>
+      <p class="resultado font-poppins font-normal text-lg leading-6 text-[#444444] pb-2">{{ book }}</p>
+      <p class="informacoes font-poppins font-semibold text-lg leading-6 text-[#8B8B8B] pb-1">Editora:</p>
+      <p class="resultado font-poppins font-normal text-lg leading-6 text-[#444444] pb-2">{{ book }}</p>
+      <button (click)="readPreview()" class="detalhes bg-[#6C63FF] w-[9rem] h-[2.5rem] rounded-lg font-poppins font-semibold text-lg text-white border-none cursor-pointer hover:bg-[#050C42] transition duration-300">Ler prévia</button>
+    </div>
+
+    <button (click)="closeModal()" class="botao-fechar w-[24px] h-[24px] font-normal text-[24px] leading-24 border-none text-[#444444] opacity-75 cursor-pointer bg-none col-start-3 row-start-1 mt-2 hover:opacity-100 transition duration-300">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <div class="sinopse col-start-1 col-end-4 row-start-2 pb-0">
+      <h4 class="informacoes font-poppins font-semibold text-lg leading-6 text-[#8B8B8B] pb-2">Sinopse</h4>
+      <p class="resultado font-poppins font-normal text-lg leading-6 text-[#444444] pb-4">{{ book }}</p>
+    </div>
+  </div>
+
+  <div class="overlay bg-black fixed top-0 left-0 w-full h-screen opacity-50 z-10"></div>
+</section>
